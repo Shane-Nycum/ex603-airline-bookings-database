@@ -21,13 +21,14 @@ erDiagram
     }
 
     bookings {
-        BIGINT id PK
-        BIGINT passenger_id FK "NOT NULL"
-        BIGINT flight_id FK "NOT NULL"
+        BIGINT passenger_id PK, FK
+        BIGINT flight_id PK, FK
         BOOLEAN is_cancelled "NOT NULL DEFAULT FALSE"
         BOOLEAN has_boarded "NOT NULL DEFAULT FALSE"
-        SMALLINT num_checked_bags
+        SMALLINT num_checked_bags "NOT NULL, DEFAULT 0, CHECK >= 0"
         TIMESTAMP booking_time "NOT NULL"
+        NUMERIC fare_paid "NOT NULL, DEFAULT 0, CHECK >= 0"
+        NUMERIC fare_refunded "NOT NULL, DEFAULT 0, CHECK >= 0"
     }
 
     airports {
@@ -43,19 +44,12 @@ erDiagram
 
     flight_routes {
         BIGINT flight_id PK, FK
-        INTEGER destination_airport_id PK, FK
-        INTEGER departure_airport_id PK, FK
-    }
-
-    fare_paid {
-        BIGINT booking_id PK, FK
-        NUMERIC amount_paid "DEFAULT 0, CHECK >= 0"
-        NUMERIC amount_refunded "DEFAULT 0, CHECK >= 0"
+        BIGINT destination_airport_id PK, FK
+        BIGINT departure_airport_id PK, FK
     }
 
     passengers ||--o{ bookings : "makes"
     flights ||--o{ bookings : "is booked on"
-    bookings ||--|| fare_paid : "has"
     flights ||--o{ flight_routes : "has route"
     airports ||--o{ flight_routes : "departs from"
     airports ||--o{ flight_routes : "arrives at"
