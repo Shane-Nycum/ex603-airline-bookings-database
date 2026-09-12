@@ -46,4 +46,8 @@ This table tracks locale information related to each airport. Airport name, addr
 Junction table supporting the many-to-many relationship between flights and airports. Its only columns are foreign key columns, which form a composite primary key: flight ID, departing airport ID, and destination airport ID.
 
 # Reflection
-150-200 words
+I've developed applications and queries for relational databases consistently throughout my career. But don’t have a huge amount of experience designing the schema entirely from scratch. I’ve mostly used and extended large, existing system. That said, the basic database mechanics that this unit introduced are nothing new for me. But designing a schema from scratch was a good exercise for me in how to think about modeling relationships. 
+
+I found myself thinking about all the nouns and events and how they relate to each other. I had to understand which noun’s existence depends on another, and which are independent. For example, a booking can’t exist without a passenger and a flight. The bookings table’s mandatory foreign keys for passenger ID and flight ID express that dependency. 
+
+I also had to think about the things that must always be true about those nouns and events, and how to express them as constraints. When constraints are well-grounded in business rules and requirements, they can be critical to prevent bad data and invalid states. When they are not well-grounded in business rules, they can block something that the business may actually need. 
