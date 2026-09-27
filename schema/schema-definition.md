@@ -4,18 +4,18 @@
 
 | Attribute | Type | Key | FK Reference |
 |---|---|---|---|
-| id | BIGINT | PK | |
-| first_name | VARCHAR(255) | | |
-| last_name | VARCHAR(255) | | |
+| id | INTEGER | PK | |
+| first_name | VARCHAR(50) | | |
+| last_name | VARCHAR(75) | | |
 | phone_number | VARCHAR(20) | | |
-| email | VARCHAR(255) | | |
+| email | VARCHAR(254) | | |
 
 ## flights
 
 | Attribute | Type | Key | FK Reference |
 |---|---|---|---|
-| id | BIGINT | PK | |
-| flight_number | SMALLINT | | |
+| id | INTEGER | PK | |
+| flight_number | INTEGER | | |
 | is_cancelled | BOOLEAN | | |
 | scheduled_departure_time | TIMESTAMP | | |
 | scheduled_arrival_time | TIMESTAMP | | |
@@ -28,11 +28,12 @@
 
 | Attribute | Type | Key | FK Reference |
 |---|---|---|---|
-| passenger_id | BIGINT | PK, FK | passengers.id |
-| flight_id | BIGINT | PK, FK | flights.id |
+| id | INTEGER | PK | |
+| passenger_id | INTEGER | FK | passengers.id |
+| flight_id | INTEGER | FK | flights.id |
 | is_cancelled | BOOLEAN | | |
 | has_boarded | BOOLEAN | | |
-| num_checked_bags | SMALLINT | | |
+| num_checked_bags | INTEGER | | |
 | booking_time | TIMESTAMP | | |
 | fare_paid | NUMERIC | | |
 | fare_refunded | NUMERIC | | |
@@ -41,21 +42,22 @@
 
 | Attribute | Type | Key | FK Reference |
 |---|---|---|---|
-| id | BIGINT | PK | |
+| id | INTEGER | PK | |
 | airport_code | VARCHAR(4) | | |
 | address_line_1 | VARCHAR(500) | | |
 | address_line_2 | VARCHAR(500) | | |
-| locality | VARCHAR(255) | | |
+| locality | VARCHAR(100) | | |
 | postal_code | VARCHAR(20) | | |
 | country_code | VARCHAR(2) | | |
-| name | VARCHAR(255) | | |
+| name | VARCHAR(100) | | |
 
 ## flight_routes
 
 | Attribute | Type | Key | FK Reference |
 |---|---|---|---|
-| flight_id | BIGINT | PK, FK | flights.id |
-| destination_airport_id | BIGINT | PK, FK | airports.id |
-| departure_airport_id | BIGINT | PK, FK | airports.id |
+| id | INTEGER | PK | |
+| flight_id | INTEGER | FK | flights.id |
+| destination_airport_id | INTEGER | FK | airports.id |
+| departure_airport_id | INTEGER | FK | airports.id |
 
 

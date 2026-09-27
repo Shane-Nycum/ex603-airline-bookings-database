@@ -1,16 +1,16 @@
 ```mermaid
 erDiagram
     passengers {
-        BIGINT id PK
-        VARCHAR_255 first_name "NOT NULL"
-        VARCHAR_255 last_name "NOT NULL"
+        INTEGER id PK
+        VARCHAR_50 first_name "NOT NULL"
+        VARCHAR_75 last_name "NOT NULL"
         VARCHAR_20 phone_number "NOT NULL"
-        VARCHAR_255 email "NOT NULL"
+        VARCHAR_254 email "NOT NULL"
     }
 
     flights {
-        BIGINT id PK
-        SMALLINT flight_number "NOT NULL"
+        INTEGER id PK
+        INTEGER flight_number "NOT NULL"
         BOOLEAN is_cancelled "NOT NULL DEFAULT FALSE"
         TIMESTAMP scheduled_departure_time "NOT NULL"
         TIMESTAMP scheduled_arrival_time "NOT NULL"
@@ -21,31 +21,33 @@ erDiagram
     }
 
     bookings {
-        BIGINT passenger_id PK, FK
-        BIGINT flight_id PK, FK
+        INTEGER id PK
+        INTEGER passenger_id FK, UK "NOT NULL, UNIQUE (passenger_id, flight_id)"
+        INTEGER flight_id FK, UK "NOT NULL, UNIQUE (passenger_id, flight_id)"
         BOOLEAN is_cancelled "NOT NULL DEFAULT FALSE"
         BOOLEAN has_boarded "NOT NULL DEFAULT FALSE"
-        SMALLINT num_checked_bags "NOT NULL, DEFAULT 0, CHECK >= 0"
+        INTEGER num_checked_bags "NOT NULL, DEFAULT 0, CHECK >= 0"
         TIMESTAMP booking_time "NOT NULL"
         NUMERIC fare_paid "NOT NULL, DEFAULT 0, CHECK >= 0"
         NUMERIC fare_refunded "NOT NULL, DEFAULT 0, CHECK >= 0"
     }
 
     airports {
-        BIGINT id PK
+        INTEGER id PK
         VARCHAR_4 airport_code
         VARCHAR_500 address_line_1 "NOT NULL"
         VARCHAR_500 address_line_2
-        VARCHAR_255 locality "NOT NULL"
+        VARCHAR_100 locality "NOT NULL"
         VARCHAR_20 postal_code
         VARCHAR_2 country_code "NOT NULL"
-        VARCHAR_255 name "NOT NULL"
+        VARCHAR_100 name "NOT NULL"
     }
 
     flight_routes {
-        BIGINT flight_id PK, FK
-        BIGINT destination_airport_id PK, FK
-        BIGINT departure_airport_id PK, FK
+        INTEGER id PK
+        INTEGER flight_id FK, UK "NOT NULL, UNIQUE (flight_id, destination_airport_id, departure_airport_id)"
+        INTEGER destination_airport_id FK, UK "NOT NULL, UNIQUE (flight_id, destination_airport_id, departure_airport_id)"
+        INTEGER departure_airport_id FK, UK "NOT NULL, UNIQUE (flight_id, destination_airport_id, departure_airport_id)"
     }
 
     passengers ||--o{ bookings : "makes"
