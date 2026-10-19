@@ -93,3 +93,17 @@ erDiagram
 - **`ON DELETE NO ACTION`** everywhere. Every foreign key in the schema uses `NO ACTION` rather than `CASCADE`. `bookings` and `flight_routes` rows are historical/financial records that must not disappear just because a passenger, flight, or airport row is later deleted. 
 - **`NUMERIC(10,2)` for money.** `fare_paid` and `fare_refunded` use `NUMERIC` rather than floating point, to avoid rounding errors accumulating across financial calculations.
 - **CHECK constraints on non-negative values.** `num_checked_bags`, `fare_paid`, and `fare_refunded` all have `CHECK (... >= 0)` constraints, since negative values in any of these columns describe no real-world state.
+
+## Query Catalogue
+
+### Unit 4: Aggregations and analysis
+
+| Query | File | Business question |
+|-------|------|-------------------|
+| 4.1.1 | [q4_1.sql](queries/unit4/q4_1.sql) | What do bookings look like overall (count, total, average, lowest and highest fare, number of passengers, and how many have a $0 fare)? |
+| 4.1.2 | [q4_1.sql](queries/unit4/q4_1.sql) | How many bookings does each flight have, and what is its average fare? |
+| 4.1.3 | [q4_1.sql](queries/unit4/q4_1.sql) | Which flights have at least 10 bookings, so their numbers mean something? |
+| 4.1.4 | [q4_1.sql](queries/unit4/q4_1.sql) | How do fares vary by region (booking country) and booking status together? |
+| 4.2.A | [q4_2.sql](queries/unit4/q4_2.sql) | For each flight, how many bookings are there, how many were cancelled, and what is the cancellation rate? |
+| 4.2.B | [q4_2.sql](queries/unit4/q4_2.sql) | What are the total bookings, cancelled bookings, cancellation rate and total fare for each region, plus a grand total for the platform? |
+| 4.2.C | [q4_2.sql](queries/unit4/q4_2.sql) | What is the cancellation rate for the busiest flights (15 or more bookings)? |
