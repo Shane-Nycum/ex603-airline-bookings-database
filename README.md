@@ -107,3 +107,16 @@ erDiagram
 | 4.2.A | [q4_2.sql](queries/unit4/q4_2.sql) | For each flight, how many bookings are there, how many were cancelled, and what is the cancellation rate? |
 | 4.2.B | [q4_2.sql](queries/unit4/q4_2.sql) | What are the total bookings, cancelled bookings, cancellation rate and total fare for each region, plus a grand total for the platform? |
 | 4.2.C | [q4_2.sql](queries/unit4/q4_2.sql) | What is the cancellation rate for the busiest flights (15 or more bookings)? |
+
+### Unit 5: Joins and query patterns
+
+| Query | File | Business question |
+|-------|------|-------------------|
+| 5.1.1 | [q5_1.sql](queries/unit5/q5_1.sql) | Who are the passengers behind each booking, and which flight was each booking for? |
+| 5.1.2 | [q5_1.sql](queries/unit5/q5_1.sql) | Which airports are linked to the flagged flights (2, 9 and 11) through `flight_routes`, and do they share any? |
+| 5.1.3 | [q5_1.sql](queries/unit5/q5_1.sql) | How do the flagged flights compare with other flights from the same origin country? |
+| 5.2.A | [q5_2.sql](queries/unit5/q5_2.sql) | Which flights does an INNER JOIN leave out compared to a LEFT JOIN, and how many? |
+| 5.2.B | [q5_2.sql](queries/unit5/q5_2.sql) | Do LEFT JOIN and RIGHT JOIN match, and what does a FULL OUTER JOIN show? |
+| 5.2.C | [q5_2.sql](queries/unit5/q5_2.sql) | Which flights have never had a booking (NOT EXISTS vs EXCEPT)? |
+| 5.3.A | [q5_3.sql](queries/unit5/q5_3.sql) | Does a CROSS JOIN of airports and flights return 5 x 15 = 75 rows? |
+| 5.3.B | [q5_3.sql](queries/unit5/q5_3.sql) | How does PostgreSQL plan and run the three-table join from 5.1.1? |
