@@ -4,7 +4,8 @@
 -- Cross joining them returns 75 rows (5 airports x 15 flights).
 -- When a Cartesian product is useful: when we want every possible combination.
 -- For example, this list could be used as part of a larger query to find routes that don't exist yet.
--- When it could be a mistake: when used on two large tables without a filter, it can create an enormous number of rows unexpectedly.
+-- When it could be a mistake: when used on two large tables without a filter,
+-- it can create an enormous number of rows unexpectedly.
 -- Requirement: CROSS JOIN between two small tables
 SELECT f.flight_id,
        f.flight_number,
