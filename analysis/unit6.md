@@ -25,3 +25,13 @@ I would start by confirming whether it's a real gap in bookings, and no customer
 If it is a real gap in bookings, then ask the sales, operations, engineering, or other appropriate team to investigate why nobody booked. For example, are customers able to find the flight on the company's website? Is there truly just very little demand for the flight?
 
 If it does turn out to be a data quality problem, then fix the applications responsible for writing data. If it is a side effect of how events are recorded, check where the bookings are being recorded (if anywhere), and potentially make changes to make sure we are capturing all the bookings in this database.
+
+## Task 6.3: Build the reporting patterns
+
+**1. Name the feature in your platform that top-N would power. Explain why three is the right number, rather than one or ten.**
+A dashboard for the pricing analysts showing the three highest fares on each flight. One fare could be a one-off, so one is too few. Three shows whether high fares are a pattern, and is short enough to read at a glance. Ten is too many: some flights have fewer than ten bookings, and it's too many to be digestible at a glance.
+
+**2. What would a large month-over-month change mean in your domain, and what should someone do about it? A number nobody acts on is not a metric.**
+It means the share of bookings that were cancelled moved a lot from one month to the next. Cancelled bookings are detrimental to the business, and a big change alerts us of something that we need to investigate. 
+
+First, we should determine whether the change is real, or if some bug in the booking system has resulted in bad data. If there's a bug, then fix it. If the change is real, then the business may want to investigate what is driving the change in customer behavior, and act on it.
