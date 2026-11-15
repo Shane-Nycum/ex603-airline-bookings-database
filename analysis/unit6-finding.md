@@ -18,7 +18,7 @@ The first quarter was the worst, at 22.6%. Each quarter thereafter, the rate con
 
 **Month by month, there is no clear trend.** Each month has only 11 to 21 bookings, so one or two cancellations change the rate a lot. The rate is higher than the month before in 7 of the 11 changes and lower in 4 (q6_3.sql, 6.3.B.1). The year ended with two rises in a row: 11.1% in October, 14.3% in November and 18.8% in December (q6_3.sql, 6.3.B.1). That is worth watching.
 
-**Flights 2, 9 and 11 are still the main problem.** Together they have 46 bookings and 13 cancellations, a rate of 28.3%. All the other flights together have 154 bookings and 21 cancellations, a rate of 13.6% (q6_3.sql, 6.3.B.2, four quarters added together). In the last quarter these three flights had 4 of the 7 cancellations (q6_3.sql, 6.3.B.2). Their numbers are small (9 to 14 bookings per quarter), so their rate moves around a lot.
+**Flights 2, 9 and 11 are the main problem.** Their cancellation rates are 25.0% (flight 2), 28.6% (flight 9) and 31.3% (flight 11), compared with 17.0% for the whole platform (q4_2.sql, 4.2.A and 4.2.B grand total).
 
 ## What should the team do next quarter?
 
