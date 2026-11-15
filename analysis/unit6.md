@@ -1,0 +1,7 @@
+## Task 6.1: Compute across a window without collapsing
+
+**1. Write a question that needs each row shown next to its group’s average. Explain why the group average alone (GROUP BY) cannot answer it.**
+Which bookings have checked bags heavier than the average for their flight? To answer this question, each booking's `bags_kg` has to sit next to the average `bags_kg` for its flight in the query output, so the two can be compared row by row. GROUP BY gives only one average per flight. The individual bookings are gone, so we can't tell which ones are above average.
+
+**2. Ranking is never neutral: someone is being ordered, and tie handling decides who counts as equal. Name a platform feature that would use your ranking, and explain which of the three functions it should use and why.**
+A "most popular flights" list on the airline's website or app, ranked by number of bookings. It should use RANK. Flights with the same number of bookings should share the same place, because neither is more popular than the other. ROW_NUMBER would put one tied flight above the other for no real reason. DENSE_RANK does not skip a place after a tie, so the flight right after the tied flights would show a higher place than it deserves.
