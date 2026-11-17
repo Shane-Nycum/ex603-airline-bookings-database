@@ -35,3 +35,11 @@ A dashboard for the pricing analysts showing the three highest fares on each fli
 It means the share of bookings that were cancelled moved a lot from one month to the next. Cancelled bookings are detrimental to the business, and a big change alerts us of something that we need to investigate. 
 
 First, we should determine whether the change is real, or if some bug in the booking system has resulted in bad data. If there's a bug, then fix it. If the change is real, then the business may want to investigate what is driving the change in customer behavior, and act on it.
+
+## Reflection
+
+Window functions keep rows; aggregates collapse them. In the airline bookings database, a question that illustrates the difference is: how much fare have we collected so far in a given quarter, as of each day? This can be useful to determine if we're on track to meet a fare target for the quarter.
+
+GROUP BY can give me the total fare for each day. It can also give me one total for the whole quarter. But it cannot give me the running total up to each day on its own, because each day needs to see the days before it. With GROUP BY alone, I would have to join the daily totals to themselves to add up the earlier days for each day. That is awkward to write, and can be expensive to execute if there are a large number of rows.
+
+A running total that uses SUM as a window function gets the same result more simply. It adds the total so far as a new column on each day's row, so I do not need a second JOIN step to add up the earlier days.
