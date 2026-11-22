@@ -240,7 +240,7 @@ The bookings table only has data from one year (2023), and monthly counts are on
 
 ## Video Presentation
 
-Video link: _to be added_
+Video link: [video-presentation.mp4](video/video-presentation.mp4)
 
 ## How to Run It
 
