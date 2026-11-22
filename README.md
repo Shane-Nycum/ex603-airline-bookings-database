@@ -248,7 +248,7 @@ This repository uses two different databases. The commands below use `psql`, so 
 
 ### Database 1: My own design (Units 1-2)
 
-This is the schema I designed in Unit 2. None of the query files in this repository run against; they all run against the course dataset.
+This is the schema I designed in Unit 2. None of the query files in this repository run against it. They all run against the course dataset.
 
 ```
 createdb ex603_airline_bookings
